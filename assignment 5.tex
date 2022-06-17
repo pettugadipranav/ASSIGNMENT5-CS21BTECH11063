@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+
+%packages:
+% \usepackage{tfrupee}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{gensymb}
+% \usepackage{txfonts}
+
+% \def\inputGnumericTable{}
+
+% \usepackage[latin1]{inputenc}                                 
+% \usepackage{color}                                            
+% \usepackage{array}                                            
+% \usepackage{longtable}                                        
+% \usepackage{calc}                                             
+% \usepackage{multirow}                                         
+% \usepackage{hhline}                                           
+% \usepackage{ifthen}
+% \usepackage{caption} 
+% \captionsetup[table]{skip=3pt}  
+% \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+% \providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+% %\renewcommand{\thefigure}{\arabic{table}}
+% \renewcommand{\thetable}{\arabic{table}}      
+
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}    
+\usepackage{textcomp, gensymb}         
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                             
+\usepackage{mathtools}
+\usepackage{ifthen}
+\usepackage{caption} 
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}   
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+
+% Title page details: 
+\title{AI1110 \\ Assignment-5} 
+\author{Pettugadi Pranav CS21BTECH11063}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+\logo{}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+
+\section{Question}
+\begin{frame}{Question}
+    \begin{block}{\textbf{Papoullis EX 7-1:} } 
+       Given independent random variables $x_i$ with respective densities $f_i(x_i)$ , we form random variables 
+       $y_k = x_1 + x_2 + x_3 +....+ x_k$. Then show that random variables $y_i$ are also independent            \end{block}
+     
+\end{frame}
+
+
+
+\section{Solution}
+\begin{frame}{Solution}
+\begin{block}{}
+
+The system \\
+y_1=x_1\\
+y_2=x_1+x_2\\
+y_3=x_1+x_2+x_3\\
+.\\.\\.\\.\\
+y_n=x_1+x_2+x_3+.....+x_n\\
+has a unique solution\\
+    $x_k=y_k-y_k_-_1)$
+\end{block}
+        \end{frame}
+        
+        \begin{frame}
+\begin{block}{}
+its jacobian transformation is \\
+%%\begin{align}
+    J(x_1 x_2 ...x_n) &=$ \begin{vmatrix}
+\frac{\partial g_1}{\partial x_1} & ..& \frac{\partial g_1}{\partial x_n}\\
+.&....&.\\
+.&....&.\\
+\frac{\partial g_n}{\partial x_1} & ..& \frac{\partial g_n}{\partial x_n}\\
+       \end{vmatrix}$\\
+  %%     \end{align}
+      =$\begin{vmatrix}
+      1 & 0 &..& 0 & 0\\
+      0 & 1 &..& 0 & 0\\
+      . & . &..& . & .\\
+      0 & 0 &..& 1 & 0\\
+      0 & 0 &..& 0 & 1\\
+      \end{vmatrix}$
+      =$1$
+\end{block}
+            \end{frame}
+            
+           \begin{frame}
+           \begin{block}{}
+                      then the joint density of y_k is
+                      \end{block}
+           \begin{align}
+               f(y_1 y_2 .. y_n) &=\frac{f(x_1 x_2..x_n)}{J}\\
+               &=
+               f(x_1 x_2..x_n)\\
+                         &=
+               f(x_1)f(x_2)...f(x_n)\\
+               &=
+               f(y_2-y_1)f(y_3-y_2)...f(y_n-y_n_-_1)
+                 \end{align}
+ It follows that any subset of the set $x_i$ is a set of independent random variables.
+ 
+ $\{y_1 \le y_1\}=\{x_1 \in A_1\},.., \{y_n \le y_n\}=\{x_n \in A_n\}$\\
+ \begin{align}
+ f(y_1 \le y_1\cap y_2 \le y_2..\cap y_n \le y_n)&=f(x_1\in A_1\cap x_2\in A_2..\cap x_n\in A_N)\\
+ &=
+ f(x_1\in A_1)f(x_2\in A_2)...f(x_n\in A_n)\\
+ &=
+ f(y_1\le y_1)f(y_2\le y_2)...f(y_n\le y_n)
+ \end{align}
+ \end{frame}
+ 
+ \begin{frame}
+ $\therefore$ If the random variables $x_i$ are independent, 
+then the random variables
+         $ y_1=g(x_1),y_2=g(x_2),..,y_n=g(x_n)$\\
+  are also independent
+ \end{frame}
+\end{document}
